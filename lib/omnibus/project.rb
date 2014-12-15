@@ -172,6 +172,23 @@ module Omnibus
     expose :install_dir
 
     #
+    # The default config path where a project's configuration can be found. 
+    #
+    # @example
+    #   config_dir "/etc/chef" 
+    #
+    # @return [String]
+    #
+    def config_dir(val = NULL)
+      if null?(val)
+        @install_dir || raise(MissingRequiredAttribute.new(self, :install_dir, '/etc/chef'))
+      else
+        @install_dir = val.gsub('\\', '/').squeeze('/').chomp('/')
+      end
+    end
+    expose :config_dir
+
+    #
     # The default root where a project should be installed. On Windows-based
     # systems, this value defaults to +C:+. On non-Windows systems, this value
     # defaults to +/opt+.

@@ -156,6 +156,13 @@ module Omnibus
     end
     private
 
+    def create_docker_assets
+      return unless options[:rpm_assets]
+
+      copy_file(resource_path('docker/Dockerfile.erb'), "#{target}/resources/docker/Dockerfile.erb")
+    end
+    private
+
     #
     # The target path to create the Omnibus project.
     #

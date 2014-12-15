@@ -26,6 +26,7 @@ module Omnibus
     autoload :PKG,      'omnibus/packagers/pkg'
     autoload :Solaris,  'omnibus/packagers/solaris'
     autoload :RPM,      'omnibus/packagers/rpm'
+    autoload :Docker,   'omnibus/packagers/docker'
 
     #
     # The list of Ohai platform families mapped to the respective packager

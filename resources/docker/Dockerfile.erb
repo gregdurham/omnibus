@@ -1,0 +1,6 @@
+FROM ubuntu:14.04
+MAINTAINER Greg Durham
+
+ADD opt /
+
+CMD /opt/opscode-analytics/bin/opscode-analytics-ctl reconfigure & /opt/opscode-analytics/embedded/bin/runsvdir-start
